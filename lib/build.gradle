@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven'
+
 
 archivesBaseName = getArchivesBaseName(project.name)
 version = rootProject.ext.mdcLibraryVersion
@@ -90,6 +92,9 @@ android {
 
   buildTypes.all {
     consumerProguardFiles 'proguard-behaviors.pro', 'proguard-inflater.pro', 'proguard-recyclerview.pro'
+  }
+  defaultConfig {
+    minSdkVersion 14
   }
 }
 
@@ -208,3 +213,7 @@ uploadArchives {
     }
   }
 }
+
+//mavPublishToMavenLocal = true
+//mavPluginVersion = '1.0.3'
+//apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/${project.mavPluginVersion}/gradle-mavenizer.gradle'
